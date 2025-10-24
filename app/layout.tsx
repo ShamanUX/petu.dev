@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh min-w-dvw`}>
         <main
-          className={`flex min-h-screen w-full flex-col items-center pt-[${webPageTopPadding}] px-16 bg-white dark:bg-black sm:items-start`}
+          className={`flex min-h-screen w-full flex-col items-center pt-[${webPageTopPadding}] bg-white dark:bg-black sm:items-start`}
         >
           <NavBar />
           {children}

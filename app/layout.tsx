@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Kode_Mono } from "next/font/google";
+import { Geist, Kode_Mono, Iceberg, Exo_2 } from "next/font/google";
 import "./globals.css";
 import Footer from "./footer";
 import NavBar from "./navBar";
+import BubbleBackground from "./BubbleBackground";
+
+export const IcebergSans = Iceberg({ variable: "--font-iceberg", subsets: ["latin"], weight: ["400"] });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const exo_2 = Exo_2({
+  variable: "--font-exo-2",
   subsets: ["latin"],
 });
 
@@ -26,15 +34,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const navBarHeight = 64; // in px
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh min-w-dvw`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${IcebergSans.variable} ${exo_2.variable} gradientAnimation antialiased min-h-dvh min-w-dvw`}
+      >
         <main
-          className={`flex min-h-screen w-full flex-col items-center pt-[${webPageTopPadding}] bg-white dark:bg-black sm:items-start`}
+          className={`flex min-h-screen w-full flex-col items-center font-sans pt-[${webPageTopPadding}] bg-white dark:bg-[#0a192f] sm:items-start relative`}
         >
-          <NavBar />
-          {children}
-          <Footer />
+          <div className="relative z-10 w-full">
+            <NavBar height={navBarHeight} />
+            {children}
+            <Footer />
+          </div>
+          <BubbleBackground />
         </main>
       </body>
     </html>

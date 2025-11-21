@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className="min-h-20 bg-amber-700 w-full flex items-center justify-center gap-4">
       {" "}
-      <a href="mailto:petrus.eskelinen@protonmail.com" className="flex gap-2 justify-center items-center ">
+      <a href="https://www.linkedin.com/in/petrus-eskelinen/" className="flex gap-2 justify-center items-center ">
         <Image
           className="invert -mr-1"
           color="#fff"

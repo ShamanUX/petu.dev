@@ -177,48 +177,49 @@ const Section: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return <div className="relative flex flex-col w-full px-4 sm:px-16 max-w-[80%] gap-8 my-16">{children}</div>;
 };
 
+const projectsData = [
+  {
+    key: "eb",
+    name: "Easybook",
+    role: "Full Stack Developer, UX Designer",
+    tech: ["React", "Node.js", "Tailwind", "Vercel", "Firestore", "Cypress", "Figma"],
+    imgUrl: "/projectImages/EasybookShowcase.png",
+    imgAlt: "Easybook UX designs",
+  },
+  {
+    key: "qaia",
+    name: "Qaia fleet management solution",
+    role: "UX/UI Designer",
+    imgUrl: "/projectImages/Dashboardcollage.png",
+    imgAlt: "Qaia dashboard UX designs",
+    tech: ["figma"],
+  },
+  {
+    key: "rt",
+    name: "Rajaton Taide",
+    role: "Web design, marketing, event production",
+    imgUrl: "/projectImages/Rajatontaidecollage.png",
+    imgAlt: "Rajaton taide web pages",
+    tech: ["js", "html", "css"],
+  },
+  {
+    key: "sr",
+    name: "SpaceRider",
+    role: "Game Developer",
+    vidUrl: "/projectImages/SpaceRider.mkv",
+    tech: ["unity", "c#"],
+  },
+  {
+    key: "thesis",
+    name: "Master's thesis - Learnability evaluation of VR apps",
+    role: "Researcher",
+    imgUrl: "/projectImages/ThesisFrontpage.png",
+    imgAlt: "Thesis paper front page: Learnability evaluation of VR applications, Petrus Eskelinen",
+    disableZoom: true,
+  },
+];
+
 export default function Home() {
-  const projectCardComponents = [
-    <ProjectCard
-      key={"eb"}
-      name={"Easybook"}
-      role={"Full Stack Developer, UX Designer"}
-      tech={["React", "Node.js", "Tailwind", "Vercel", "Firestore", "Cypress", "Figma"]}
-      imgUrl={"/projectImages/EasybookShowcase.png"}
-      imgAlt={"Easybook UX designs"}
-    />,
-    <ProjectCard
-      key={"qaia"}
-      name={"Qaia fleet management solution"}
-      role={"UX/UI Designer"}
-      imgUrl={"/projectImages/Dashboardcollage.png"}
-      imgAlt={"Qaia dashboard UX designs"}
-      tech={["figma"]}
-    />,
-    <ProjectCard
-      key={"rt"}
-      name={"Rajaton Taide"}
-      role={"Web design, marketing, event production"}
-      imgUrl={"/projectImages/Rajatontaidecollage.png"}
-      imgAlt={"Rajaton taide web pages"}
-      tech={["js", "html", "css"]}
-    />,
-    <ProjectCard
-      key={"sr"}
-      name={"SpaceRider"}
-      role={"Game Developer"}
-      vidUrl={"/projectImages/SpaceRider.mkv"}
-      tech={["unity", "c#"]}
-    />,
-    <ProjectCard
-      key={"thesis"}
-      name={"Master's thesis - Learnability evaluation of VR apps"}
-      role={"Researcher"}
-      imgUrl={"/projectImages/ThesisFrontpage.png"}
-      imgAlt={"Thesis paper front page: Learnability evaluation of VR applications, Petrus Eskelinen"}
-      disableZoom
-    />,
-  ];
   return (
     <>
       <div className="flex flex-col w-full justify-center items-center">
@@ -226,9 +227,9 @@ export default function Home() {
         <Section>
           <SectionHeading id="projects" name="Featured projects" />
           <div className="flex flex-col gap-16">
-            {projectCardComponents.map((pc, index) => (
-              <div key={pc.key} className={`flex w-full ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
-                {pc}
+            {projectsData.map((project, index) => (
+              <div key={project.key} className={`flex w-full ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+                <ProjectCard {...project} />
               </div>
             ))}
           </div>

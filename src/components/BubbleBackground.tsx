@@ -27,9 +27,6 @@ export default function BubbleBackground() {
         startHeight: isInitial ? Math.random() : 0,
       };
 
-      console.debug("bubble size", size);
-      console.debug("bubble duration", duration);
-
       setBubbles((prev) => [...prev, newBubble].slice(-30));
     };
 

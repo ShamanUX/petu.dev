@@ -66,8 +66,8 @@ export default function VerticalJobTabs() {
             <button
               key={job.company}
               ref={(el) => (tabRefs.current[idx] = el)}
-              className={`px-4 ml-2 py-2 text-left tab-button font-medium transition-colors duration-300  ${
-                selected === idx ? "text-highlight! bg-highlight/20" : " hover:text-highlight/70 hover:bg-highlight/10"
+              className={`px-4 ml-2 py-2 text-left tab-button font-medium transition-colors duration-300 ${
+                selected === idx ? "text-highlight! bg-highlight/20" : "hover:text-highlight/70 hover:bg-highlight/10"
               }`}
               onClick={() => setSelected(idx)}
               role="tab"

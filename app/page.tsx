@@ -3,6 +3,7 @@ import React from "react";
 
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import VerticalJobTabs from "./VerticalJobTabs";
 
 function ProfileImage() {
   return (
@@ -199,7 +200,7 @@ interface SectionHeadingProps {
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({ name, id }) => {
   return (
-    <div className="flex gap-8 items-center">
+    <div className=" flex gap-8 items-center">
       <h2 className="text-3xl mb-4 whitespace-nowrap" id={id}>
         {name}
       </h2>
@@ -209,7 +210,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ name, id }) => {
 };
 
 const Section: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <div className="flex flex-col w-full px-4 sm:px-16 max-w-[80%] gap-8 my-16">{children}</div>;
+  return <div className="relative flex flex-col w-full px-4 sm:px-16 max-w-[80%] gap-8 my-16">{children}</div>;
 };
 
 export default function Home() {
@@ -271,13 +272,7 @@ export default function Home() {
         <Section>
           <SectionHeading id="experience" name="Experience" />
 
-          <ExperienceCard
-            companyName="Easybook"
-            timeRange="Nov 2024 - Present"
-            roles={["Full Stack Developer", "UX Designer"]}
-            tech={["React", "Node.js", "Tailwind", "Vercel", "Firestore", "Cypress", "Figma"]}
-            description="Working for a SaaS startup, developed a robust embeddable calendar/chatbot system with React, Node.js and Typescript, utilizing Vercel and Cloud Firestore. I was responsible for designing the visual look of the app and new features. Implemented automated tests with Cypress. Took charge of developing the startup's devops and improved the way of working, both in terms of coding best practices and communication."
-          />
+          <VerticalJobTabs />
         </Section>
         <Section>
           <SectionHeading id="references" name="References" />

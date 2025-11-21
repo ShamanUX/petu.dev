@@ -1,14 +1,12 @@
-import Image from "next/image";
 import React from "react";
-
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import VerticalJobTabs from "./VerticalJobTabs";
+import VerticalJobTabs from "../components/VerticalJobTabs";
 
 function ProfileImage() {
   return (
     <div className="rounded-full hidden md:block overflow-hidden max-h-54 max-w-54 lg:max-h-72 lg:max-w-72 min-h-54 min-w-54 lg:min-h-72 lg:min-w-72 shadow-xl shadow-highlight/20">
-      <Image src="/PetrusEskelinen.jpg" alt="Picture of Petrus Eskelinen" width={500} height={500} quality={100} />
+      <img src="/PetrusEskelinen.jpg" alt="Picture of Petrus Eskelinen" width={500} height={500} />
     </div>
   );
 }
@@ -20,13 +18,13 @@ function HeaderText() {
         {" "}
         <span className="relative">
           Petrus{" "}
-          <Image
+          <img
             src="/handwritten/AKA PETU.svg"
             alt="Nickname Petu in handwritten style"
             width={300}
             height={300}
             className="invert absolute bottom-full md:left-24 left-0 w-48 md:w-64"
-          ></Image>
+          />
         </span>{" "}
         Eskelinen
       </h1>
@@ -40,20 +38,6 @@ function HeaderText() {
         As a seasoned <strong>full stack developer</strong>, <br /> I build web & cloud solutions with proficiency and
         care.
       </p>
-    </div>
-  );
-}
-
-function ProjectsLink() {
-  return (
-    <div className="w-full justify-start flex flex-col gap-4 text-base font-medium sm:flex-row items-center">
-      <a
-        className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] max-w-fit"
-        href="#projects"
-      >
-        <Image className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={16} height={16} />
-        Check out my projects
-      </a>
     </div>
   );
 }
@@ -136,7 +120,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         <div className="max-w-1/3 font-mono lowercase text-sm flex flex-wrap flex-row-reverse items-start gap-y-1 gap-4 -mt-2">
           {tech &&
-            tech.map((t, i) => (
+            tech.map((t) => (
               <span key={t} className="flex items-center gap-1">
                 <svg
                   width="6"
@@ -156,7 +140,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       {description && <p>{description}</p>}
       {imgUrl && imgAlt && (
         <Zoom classDialog="custom-zoom" isDisabled={disableZoom}>
-          <Image className="min-w-full" width={1000} height={1000} src={imgUrl} alt={imgAlt}></Image>
+          <img className="min-w-full" width={1000} height={1000} src={imgUrl} alt={imgAlt} />
         </Zoom>
       )}
       {vidUrl && (
@@ -169,26 +153,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <PartialBorder side="right" flip />
       <PartialBorder side="top" />
       <PartialBorder side="left" />
-    </div>
-  );
-};
-
-interface ExperienceCardProps {
-  companyName: string;
-  roles: string[];
-  tech: string[];
-  description: string;
-  timeRange: string;
-}
-
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ companyName, roles, tech, description, timeRange }) => {
-  return (
-    <div className="flex flex-col">
-      <p>{companyName}</p>
-      <p>{timeRange}</p>
-      <p>{roles.join(", ")}</p>
-      <p>{tech.join(", ")}</p>
-      <p>{description}</p>
     </div>
   );
 };

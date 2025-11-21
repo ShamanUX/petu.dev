@@ -1,6 +1,4 @@
-"use client";
-import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 
 const jobs = [
   {
@@ -79,13 +77,12 @@ export default function VerticalJobTabs() {
               tabIndex={selected === idx ? 0 : -1}
             >
               <span className="flex items-center gap-2">
-                <Image
+                <img
                   src={job.icon}
                   alt={`${job.company} logo`}
-                  width={250}
-                  height={250}
+                  width={64}
+                  height={64}
                   style={{ objectFit: "contain" }}
-                  quality={100}
                   className={`${job.invertIcon ? "invert" : ""} h-16 w-16`}
                 />
 
@@ -111,11 +108,11 @@ export default function VerticalJobTabs() {
           >
             <div className="flex flex-col gap-4 border-b pb-4">
               <div className="flex items-center gap-4">
-                <Image
+                <img
                   src={jobs[selected].icon}
                   alt={`${jobs[selected].company} logo`}
-                  width={250}
-                  height={250}
+                  width={128}
+                  height={128}
                   style={{ objectFit: "contain" }}
                   className={`${jobs[selected].invertIcon ? "invert" : ""} h-fit w-32`}
                 />

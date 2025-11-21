@@ -1,6 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+
 function ProfileImage() {
   return (
     <div className="rounded-full hidden md:block overflow-hidden max-h-54 max-w-54 lg:max-h-72 lg:max-w-72 min-h-54 min-w-54 lg:min-h-72 lg:min-w-72 shadow-xl shadow-highlight/20">
@@ -102,22 +105,35 @@ const PartialBorder: React.FC<{ side: string; flip?: boolean }> = ({ side, flip 
 interface ProjectCardProps {
   name: string;
   role: string;
-  imgUrl: string;
-  imgAlt: string;
+  vidUrl?: string;
+  imgUrl?: string;
+  imgAlt?: string;
   tech?: string[];
   flipBorder?: boolean;
+  disableZoom?: boolean;
+  description?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ name, role, imgUrl, imgAlt, tech, flipBorder }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  name,
+  role,
+  imgUrl,
+  imgAlt,
+  tech,
+  flipBorder,
+  disableZoom,
+  description,
+  vidUrl,
+}) => {
   return (
-    <div className="flex flex-col rounded-sm min-w-full p-8 relative shadow-sm shadow-highlight">
+    <div className="flex flex-col rounded-sm min-w-full p-8 gap-4 relative shadow-sm shadow-highlight">
       <div className="flex justify-between min-h-[60px]">
         <div className="flex flex-col gap-2">
           <h3 className="text-2xl align-top leading-[1]"> {name} </h3>
           <p>{role}</p>
         </div>
 
-        <div className="max-w-1/3 font-mono lowercase text-sm flex flex-wrap flex-row-reverse items-center gap-y-1 gap-4 -mt-2">
+        <div className="max-w-1/3 font-mono lowercase text-sm flex flex-wrap flex-row-reverse items-start gap-y-1 gap-4 -mt-2">
           {tech &&
             tech.map((t, i) => (
               <span key={t} className="flex items-center gap-1">
@@ -136,7 +152,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, role, imgUrl, imgAlt, t
             ))}
         </div>
       </div>
-      <Image className="min-w-full" width={1000} height={1000} src={imgUrl} alt={imgAlt}></Image>
+      {description && <p>{description}</p>}
+      {imgUrl && (
+        <Zoom classDialog="custom-zoom" isDisabled={disableZoom}>
+          <Image className="min-w-full" width={1000} height={1000} src={imgUrl} alt={imgAlt}></Image>
+        </Zoom>
+      )}
+      {vidUrl && (
+        <video className=" rounded-md min-w-full" autoPlay muted loop>
+          <source src={vidUrl} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
+      <PartialBorder side="bottom" flip={flipBorder} />
       <PartialBorder side="right" flip />
       <PartialBorder side="top" />
       <PartialBorder side="left" />
@@ -200,18 +228,27 @@ export default function Home() {
               role={"UX/UI Designer"}
               imgUrl={"/projectImages/Dashboardcollage.png"}
               imgAlt={"Qaia dashboard UX designs"}
+              tech={["figma"]}
             />
             <ProjectCard
               name={"Rajaton Taide"}
               role={"Web design, marketing, event production"}
               imgUrl={"/projectImages/Rajatontaidecollage.png"}
               imgAlt={"Rajaton taide web pages"}
+              tech={["js", "html", "css"]}
             />
             <ProjectCard
               name={"Master's thesis - Learnability evaluation of VR apps"}
               role={"Researcher"}
               imgUrl={"/projectImages/ThesisFrontpage.png"}
               imgAlt={"Thesis paper front page: Learnability evaluation of VR applications, Petrus Eskelinen"}
+              disableZoom
+            />
+            <ProjectCard
+              name={"SpaceRider"}
+              role={"Game Developer"}
+              vidUrl={"/projectImages/SpaceRider.mkv"}
+              tech={["unity", "c#"]}
             />
           </div>
           <h2 className="text-3xl" id="experience">

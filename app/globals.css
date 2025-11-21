@@ -11,6 +11,21 @@ root {
   background-color: rgba(0, 0, 0, 0);
 }
 
+/* DISABLE NAVBAR TEXT ZOOM ON MOBILE */
+
+.fixed-text-size {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+@media (max-width: 600px) {
+  .fixed-text-size {
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

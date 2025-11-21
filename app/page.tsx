@@ -30,7 +30,7 @@ function HeaderText() {
         Eskelinen
       </h1>
       <h2 className="w-full text-4xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-        Robust <span className="font-mono font-bold">{`<code>`}</span>. Beautiful{" "}
+        Robust <span className="font-mono font-bold">{`<code>`}</span>. <br className="md:hidden" /> Beautiful{" "}
         <span className=" bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
           design.
         </span>{" "}
@@ -126,7 +126,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   vidUrl,
 }) => {
   return (
-    <div className="flex flex-col rounded-sm min-w-full p-8 gap-4 relative shadow-sm shadow-highlight">
+    <div className="flex flex-col rounded-sm p-8 gap-4 w-8/9 relative shadow-sm shadow-highlight backdrop-blur-xs">
       <div className="flex justify-between min-h-[60px]">
         <div className="flex flex-col gap-2">
           <h3 className="text-2xl align-top leading-[1]"> {name} </h3>
@@ -153,7 +153,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </div>
       {description && <p>{description}</p>}
-      {imgUrl && (
+      {imgUrl && imgAlt && (
         <Zoom classDialog="custom-zoom" isDisabled={disableZoom}>
           <Image className="min-w-full" width={1000} height={1000} src={imgUrl} alt={imgAlt}></Image>
         </Zoom>
@@ -208,52 +208,69 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ name, id }) => {
   );
 };
 
+const Section: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return <div className="flex flex-col w-full px-4 sm:px-16 max-w-[80%] gap-8 my-16">{children}</div>;
+};
+
 export default function Home() {
+  const projectCardComponents = [
+    <ProjectCard
+      key={"eb"}
+      name={"Easybook"}
+      role={"Full Stack Developer, UX Designer"}
+      tech={["React", "Node.js", "Tailwind", "Vercel", "Firestore", "Cypress", "Figma"]}
+      imgUrl={"/projectImages/EasybookShowcase.png"}
+      imgAlt={"Easybook UX designs"}
+    />,
+    <ProjectCard
+      key={"qaia"}
+      name={"Qaia fleet management solution"}
+      role={"UX/UI Designer"}
+      imgUrl={"/projectImages/Dashboardcollage.png"}
+      imgAlt={"Qaia dashboard UX designs"}
+      tech={["figma"]}
+    />,
+    <ProjectCard
+      key={"rt"}
+      name={"Rajaton Taide"}
+      role={"Web design, marketing, event production"}
+      imgUrl={"/projectImages/Rajatontaidecollage.png"}
+      imgAlt={"Rajaton taide web pages"}
+      tech={["js", "html", "css"]}
+    />,
+    <ProjectCard
+      key={"sr"}
+      name={"SpaceRider"}
+      role={"Game Developer"}
+      vidUrl={"/projectImages/SpaceRider.mkv"}
+      tech={["unity", "c#"]}
+    />,
+    <ProjectCard
+      key={"thesis"}
+      name={"Master's thesis - Learnability evaluation of VR apps"}
+      role={"Researcher"}
+      imgUrl={"/projectImages/ThesisFrontpage.png"}
+      imgAlt={"Thesis paper front page: Learnability evaluation of VR applications, Petrus Eskelinen"}
+      disableZoom
+    />,
+  ];
   return (
     <>
       <div className="flex flex-col w-full justify-center items-center">
         <Header />
-        <div className="flex flex-col w-full px-4 sm:px-16 max-w-4xl">
+        <Section>
           <SectionHeading id="projects" name="Featured projects" />
           <div className="flex flex-col gap-16">
-            <ProjectCard
-              name={"Easybook"}
-              role={"Full Stack Developer, UX Designer"}
-              tech={["React", "Node.js", "Tailwind", "Vercel", "Firestore", "Cypress", "Figma"]}
-              imgUrl={"/projectImages/EasybookShowcase.png"}
-              imgAlt={"Easybook UX designs"}
-            />
-            <ProjectCard
-              name={"Qaia fleet management solution"}
-              role={"UX/UI Designer"}
-              imgUrl={"/projectImages/Dashboardcollage.png"}
-              imgAlt={"Qaia dashboard UX designs"}
-              tech={["figma"]}
-            />
-            <ProjectCard
-              name={"Rajaton Taide"}
-              role={"Web design, marketing, event production"}
-              imgUrl={"/projectImages/Rajatontaidecollage.png"}
-              imgAlt={"Rajaton taide web pages"}
-              tech={["js", "html", "css"]}
-            />
-            <ProjectCard
-              name={"Master's thesis - Learnability evaluation of VR apps"}
-              role={"Researcher"}
-              imgUrl={"/projectImages/ThesisFrontpage.png"}
-              imgAlt={"Thesis paper front page: Learnability evaluation of VR applications, Petrus Eskelinen"}
-              disableZoom
-            />
-            <ProjectCard
-              name={"SpaceRider"}
-              role={"Game Developer"}
-              vidUrl={"/projectImages/SpaceRider.mkv"}
-              tech={["unity", "c#"]}
-            />
+            {projectCardComponents.map((pc, index) => (
+              <div key={pc.key} className={`flex w-full ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+                {pc}
+              </div>
+            ))}
           </div>
-          <h2 className="text-3xl" id="experience">
-            Experience
-          </h2>
+        </Section>
+        <Section>
+          <SectionHeading id="experience" name="Experience" />
+
           <ExperienceCard
             companyName="Easybook"
             timeRange="Nov 2024 - Present"
@@ -261,8 +278,10 @@ export default function Home() {
             tech={["React", "Node.js", "Tailwind", "Vercel", "Firestore", "Cypress", "Figma"]}
             description="Working for a SaaS startup, developed a robust embeddable calendar/chatbot system with React, Node.js and Typescript, utilizing Vercel and Cloud Firestore. I was responsible for designing the visual look of the app and new features. Implemented automated tests with Cypress. Took charge of developing the startup's devops and improved the way of working, both in terms of coding best practices and communication."
           />
-          <h2 className="text-3xl" id="references"></h2>
-        </div>
+        </Section>
+        <Section>
+          <SectionHeading id="references" name="References" />
+        </Section>
       </div>
     </>
   );

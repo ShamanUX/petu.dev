@@ -22,7 +22,7 @@ const NavLink: React.FC<NavLinkProps> = ({ name, id }) => {
 
 export default function NavBar({ height }: { height: number }) {
   return (
-    <div className="w-full sticky top-0 z-10">
+    <div className="w-full sticky top-0 z-10 fixed-text-size">
       <div className="absolute inset-0 bg-[#12334540] backdrop-blur-sm " />
       <div className="flex justify-end w-full px-16">
         <div className={`flex gap-4 justify-center items-center`} style={{ height: height }}>

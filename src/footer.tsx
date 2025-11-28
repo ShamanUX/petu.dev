@@ -8,7 +8,7 @@ export default function Footer() {
         <img
           className="invert -mr-1"
           color="#fff"
-          src={"/linkedin.svg"}
+          src={"/petu.dev/linkedin.svg"}
           width={32}
           height={32}
           alt="linkedIn logo"

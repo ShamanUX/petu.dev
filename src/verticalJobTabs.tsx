@@ -11,11 +11,11 @@ const jobs = [
       "I designed and developed the admin panel UI, and implemented features ranging from chatbot logic to booking systems.",
       "Improved the development workflow and security, and implemented automated testing with Cypress.",
     ],
-    icon: "/companyLogos/EasybookFullLogo.png",
+    icon: "/petu.dev/companyLogos/EasybookFullLogo.png",
   },
   {
     company: "Hitachi High-Tech Analytical Science",
-    companyUrl: "https://hitachi-hightech.com/global/science/",
+    companyUrl: "https://hha.hitachi-hightech.com/en/",
     title: "UI Developer",
     date: "SEP 2023 - NOV 2024",
     summary: "Scientific instrumentation company specializing in analytical instruments.",
@@ -24,7 +24,7 @@ const jobs = [
       "Collaborated in complex multi-team environment in an effort to maximise productivity.",
       "Unified the design across the product to ensure a consistent user experience.",
     ],
-    icon: "/companyLogos/logo-hitachi.svg",
+    icon: "/petu.dev/companyLogos/logo-hitachi.svg",
     invertIcon: true,
   },
   {
@@ -37,7 +37,7 @@ const jobs = [
       "Investigated use of robotic process automation (RPA) to improve internal workflows.",
       "Used docker to containerize legacy applications for easier deployment and maintenance.",
     ],
-    icon: "/companyLogos/solenovo-logo.webp",
+    icon: "/petu.dev/companyLogos/solenovo-logo.webp",
   },
   // Add more jobs as needed...
 ];

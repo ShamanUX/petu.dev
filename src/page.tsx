@@ -7,7 +7,7 @@ import VerticalJobTabs from "./verticalJobTabs";
 function ProfileImage() {
   return (
     <div className="rounded-full hidden md:block overflow-hidden max-h-54 max-w-54 lg:max-h-72 lg:max-w-72 min-h-54 min-w-54 lg:min-h-72 lg:min-w-72 shadow-xl shadow-highlight/20">
-      <img src="/PetrusEskelinen.jpg" alt="Picture of Petrus Eskelinen" width={500} height={500} />
+      <img src="/petu.dev/PetrusEskelinen.jpg" alt="Picture of Petrus Eskelinen" width={500} height={500} />
     </div>
   );
 }
@@ -20,7 +20,7 @@ function HeaderText() {
         <span className="relative">
           Petrus{" "}
           <img
-            src="/handwritten/AKA PETU.svg"
+            src="/petu.dev/handwritten/AKA PETU.svg"
             alt="Nickname Petu in handwritten style"
             width={300}
             height={300}
@@ -39,6 +39,7 @@ function HeaderText() {
         As a seasoned <strong>full stack developer</strong>, <br /> I build web & cloud solutions with proficiency and
         care.
       </p>
+      <ProjectsLink />
     </div>
   );
 }
@@ -50,7 +51,7 @@ function ProjectsLink() {
         className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] max-w-fit"
         href="#projects"
       >
-        <img className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={16} height={16} />
+        <img className="dark:invert" src="/petu.dev/vercel.svg" alt="Vercel logomark" width={16} height={16} />
         Check out my projects
       </a>
     </div>
@@ -135,7 +136,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         <div className="max-w-1/3 font-mono lowercase text-sm flex flex-wrap flex-row-reverse items-start gap-y-1 gap-4 -mt-2">
           {tech &&
-            tech.map((t, i) => (
+            tech.map((t) => (
               <span key={t} className="flex items-center gap-1">
                 <svg
                   width="6"
@@ -179,26 +180,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   );
 };
 
-interface ExperienceCardProps {
-  companyName: string;
-  roles: string[];
-  tech: string[];
-  description: string;
-  timeRange: string;
-}
-
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ companyName, roles, tech, description, timeRange }) => {
-  return (
-    <div className="flex flex-col">
-      <p>{companyName}</p>
-      <p>{timeRange}</p>
-      <p>{roles.join(", ")}</p>
-      <p>{tech.join(", ")}</p>
-      <p>{description}</p>
-    </div>
-  );
-};
-
 interface SectionHeadingProps {
   name: string;
   id: string;
@@ -226,14 +207,14 @@ export default function Page() {
       name={"Easybook"}
       role={"Full Stack Developer, UX Designer"}
       tech={["React", "Node.js", "Tailwind", "Vercel", "Firestore", "Cypress", "Figma"]}
-      imgUrl={"/projectImages/EasybookShowcase.png"}
+      imgUrl={"/petu.dev/projectImages/EasybookShowcase.png"}
       imgAlt={"Easybook UX designs"}
     />,
     <ProjectCard
       key={"qaia"}
       name={"Qaia fleet management solution"}
       role={"UX/UI Designer"}
-      imgUrl={"/projectImages/Dashboardcollage.png"}
+      imgUrl={"/petu.dev/projectImages/Dashboardcollage.png"}
       imgAlt={"Qaia dashboard UX designs"}
       tech={["figma"]}
     />,
@@ -241,7 +222,7 @@ export default function Page() {
       key={"rt"}
       name={"Rajaton Taide"}
       role={"Web design, marketing, event production"}
-      imgUrl={"/projectImages/Rajatontaidecollage.png"}
+      imgUrl={"/petu.dev/projectImages/Rajatontaidecollage.png"}
       imgAlt={"Rajaton taide web pages"}
       tech={["js", "html", "css"]}
     />,
@@ -249,14 +230,14 @@ export default function Page() {
       key={"sr"}
       name={"SpaceRider"}
       role={"Game Developer"}
-      vidUrl={"/projectImages/SpaceRider.mkv"}
+      vidUrl={"/petu.dev/projectImages/SpaceRider.mkv"}
       tech={["unity", "c#"]}
     />,
     <ProjectCard
       key={"thesis"}
       name={"Master's thesis - Learnability evaluation of VR apps"}
       role={"Researcher"}
-      imgUrl={"/projectImages/ThesisFrontpage.png"}
+      imgUrl={"/petu.dev/projectImages/ThesisFrontpage.png"}
       imgAlt={"Thesis paper front page: Learnability evaluation of VR applications, Petrus Eskelinen"}
       disableZoom
     />,

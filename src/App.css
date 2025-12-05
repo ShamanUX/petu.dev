@@ -105,6 +105,10 @@ body {
   }
 }
 
+.bubble-sway {
+  transition: transform 2s ease-in-out;
+}
+
 .bubble-float {
   animation: floatUp var(--duration) ease-in forwards;
   animation-delay: var(--delay);

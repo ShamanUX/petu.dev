@@ -17,7 +17,7 @@ function ProfileImage() {
 function HeaderText() {
   return (
     <div className="flex-col flex gap-8">
-      <h1 className={`text-7xl font-iceberg relative`}>
+      <h1 className={`text-5xl md:text-7xl font-iceberg relative`}>
         {" "}
         <span className="relative">
           Petrus{" "}
@@ -26,7 +26,7 @@ function HeaderText() {
             alt="Nickname Petu in handwritten style"
             width={300}
             height={300}
-            className="invert absolute bottom-full md:left-24 left-0 w-48 md:w-64"
+            className="invert absolute bottom-full left-24  w-48 md:w-64"
           ></img>
         </span>{" "}
         Eskelinen
@@ -66,7 +66,7 @@ function ProjectsLink() {
 function Header() {
   return (
     <div
-      className="min-w-[80%] max-w-full flex items-start md:items-center justify-center flex-col-reverse md:flex-row relative"
+      className="min-w-[80%] p-4 max-w-full flex items-start md:items-center justify-center flex-col-reverse md:flex-row relative"
       style={{ minHeight: "calc(100dvh - 64px)" }}
     >
       <div className="flex w-full flex-col justify-between gap-8 text-center md:text-left">
@@ -328,7 +328,7 @@ export default function Page() {
       </div>
 
       {/* Social Links */}
-      <div className="hidden md:fixed bottom-4 left-4 flex flex-col justify-center items-center gap-4 z-20">
+      <div className="hidden md:fixed bottom-4 left-4 md:flex flex-col justify-center items-center gap-4 z-20">
         <a href="mailto:petrus.eskelinen@protonmail.com" className="relative group" title="Email">
           <div
             className="flex gap-2  text-gray-600 dark:text-white group-hover:text-highlight transition-colors duration-300"

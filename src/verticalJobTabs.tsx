@@ -23,27 +23,29 @@ interface JobPanelProps {
 const JobPanel: React.FC<JobPanelProps> = ({ job }) => (
   <>
     <div className="flex flex-col gap-4 border-b pb-4">
-      <div className="flex flex-col md:flex-row md:items-center gap-4">
-        <img
-          src={job.icon}
-          alt={`${job.company} logo`}
-          width={64}
-          height={64}
-          style={{ objectFit: "contain" }}
-          className={`${job.invertIcon ? "invert" : ""} ${job.iconClassName || ""}h-fit w-32`}
-        />
-        <h3 className="font-medium flex leading-tight text-xl md:text-2xl">
+      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+        <div className="flex flex-col md:flex-row gap-2 md:items-center justify-center">
+          <img
+            src={job.icon}
+            alt={`${job.company} logo`}
+            width={64}
+            height={64}
+            style={{ objectFit: "contain" }}
+            className={`${job.invertIcon ? "invert" : ""} ${job.iconClassName || ""}h-fit w-32`}
+          />
+          <div className="hidden md:block">
+            <a href={job.companyUrl} className="" target="_blank" rel="noopener noreferrer">
+              <OpenNewWindow />
+            </a>
+          </div>
+        </div>
+        <h3 className="font-medium flex md:ml-2 leading-tight text-xl md:text-2xl">
           <div>
             {job.title.map((title) => (
               <div>{title}</div>
             ))}
 
             <p className="font-mono text-xs text-blue-700">{job.date}</p>
-          </div>
-          <div className="hidden md:block">
-            <a href={job.companyUrl} className="" target="_blank" rel="noopener noreferrer">
-              <OpenNewWindow />
-            </a>
           </div>
         </h3>
       </div>

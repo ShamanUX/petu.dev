@@ -328,7 +328,7 @@ export default function Page() {
       </div>
 
       {/* Social Links */}
-      <div className="fixed bottom-4 left-4 flex flex-col justify-center items-center gap-4 z-20">
+      <div className="hidden md:fixed bottom-4 left-4 flex flex-col justify-center items-center gap-4 z-20">
         <a href="mailto:petrus.eskelinen@protonmail.com" className="relative group" title="Email">
           <div
             className="flex gap-2  text-gray-600 dark:text-white group-hover:text-highlight transition-colors duration-300"

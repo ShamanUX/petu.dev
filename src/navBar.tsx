@@ -31,7 +31,7 @@ export default function NavBar({ height }: { height: number }) {
           <a className="relative" href="https://github.com/ShamanUX" target="_blank">
             <img
               className="invert dark:invert-0 h-6 w-6"
-              src="/petu.dev/github.svg"
+              src="/github.svg"
               alt="Github logo"
               width={100}
               height={100}

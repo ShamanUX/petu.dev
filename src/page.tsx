@@ -3,11 +3,12 @@ import React from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import VerticalJobTabs from "./verticalJobTabs";
+import ReferenceCard, { Quote } from "./ReferenceCard";
 
 function ProfileImage() {
   return (
     <div className="rounded-full hidden md:block overflow-hidden max-h-54 max-w-54 lg:max-h-72 lg:max-w-72 min-h-54 min-w-54 lg:min-h-72 lg:min-w-72 shadow-xl shadow-highlight/20">
-      <img src="/petu.dev/PetrusEskelinen.jpg" alt="Picture of Petrus Eskelinen" width={500} height={500} />
+      <img src="/PetrusEskelinen.jpg" alt="Picture of Petrus Eskelinen" width={500} height={500} />
     </div>
   );
 }
@@ -20,7 +21,7 @@ function HeaderText() {
         <span className="relative">
           Petrus{" "}
           <img
-            src="/petu.dev/handwritten/AKA PETU.svg"
+            src="/handwritten/AKA PETU.svg"
             alt="Nickname Petu in handwritten style"
             width={300}
             height={300}
@@ -51,7 +52,7 @@ function ProjectsLink() {
         className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] max-w-fit"
         href="#projects"
       >
-        <img className="dark:invert" src="/petu.dev/vercel.svg" alt="Vercel logomark" width={16} height={16} />
+        <img className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={16} height={16} />
         Check out my projects
       </a>
     </div>
@@ -207,14 +208,14 @@ export default function Page() {
       name={"Easybook"}
       role={"Full Stack Developer, UX Designer"}
       tech={["React", "Node.js", "Tailwind", "Vercel", "Firestore", "Cypress", "Figma"]}
-      imgUrl={"/petu.dev/projectImages/EasybookShowcase.png"}
+      imgUrl={"/projectImages/EasybookShowcase.png"}
       imgAlt={"Easybook UX designs"}
     />,
     <ProjectCard
       key={"qaia"}
       name={"Qaia fleet management solution"}
       role={"UX/UI Designer"}
-      imgUrl={"/petu.dev/projectImages/Dashboardcollage.png"}
+      imgUrl={"/projectImages/Dashboardcollage.png"}
       imgAlt={"Qaia dashboard UX designs"}
       tech={["figma"]}
     />,
@@ -222,7 +223,7 @@ export default function Page() {
       key={"rt"}
       name={"Rajaton Taide"}
       role={"Web design, marketing, event production"}
-      imgUrl={"/petu.dev/projectImages/Rajatontaidecollage.png"}
+      imgUrl={"/projectImages/Rajatontaidecollage.png"}
       imgAlt={"Rajaton taide web pages"}
       tech={["js", "html", "css"]}
     />,
@@ -230,14 +231,14 @@ export default function Page() {
       key={"sr"}
       name={"SpaceRider"}
       role={"Game Developer"}
-      vidUrl={"/petu.dev/projectImages/SpaceRider.mkv"}
+      vidUrl={"/projectImages/SpaceRider.mkv"}
       tech={["unity", "c#"]}
     />,
     <ProjectCard
       key={"thesis"}
       name={"Master's thesis - Learnability evaluation of VR apps"}
       role={"Researcher"}
-      imgUrl={"/petu.dev/projectImages/ThesisFrontpage.png"}
+      imgUrl={"/projectImages/ThesisFrontpage.png"}
       imgAlt={"Thesis paper front page: Learnability evaluation of VR applications, Petrus Eskelinen"}
       disableZoom
     />,
@@ -263,6 +264,56 @@ export default function Page() {
         </Section>
         <Section>
           <SectionHeading id="references" name="References" />
+          <ReferenceCard
+            referrerName="Elias Anttalainen"
+            referrerRole="Marketing Director"
+            companyName="Easybook"
+            logo="/companyLogos/EasybookFullLogo.png"
+            logoClassName="mt-1"
+          >
+            <p>
+              <Quote />
+              Petrus has been truly reliable and cooperative, and he has handled his work excellently. He has been a
+              strong part of the team. In addition to being a talented UI designer who also understands the backend
+              side, he has an excellent ability to lead the team. Petrus was responsible for the entire software design
+              and at the same time succeeded in bringing new practices and clear rules to the company, which have
+              streamlined our software development process. A self-directed, determined, and reliable performer.
+              <Quote />
+            </p>
+          </ReferenceCard>
+          <ReferenceCard
+            referrerName="Henri Auer"
+            referrerRole="Lead Developer"
+            companyName="Hitachi High-Tech Analytical Science Finland"
+            logo="/companyLogos/logo-hitachi.svg"
+            logoClassName=" invert !h-5 mt-1"
+          >
+            <p>
+              <Quote />
+              Petrus has taken care of his tasks very skillfully in timely manner and had right competences for the job.
+              He designed and implemented graphical user interfaces and coordinated work with other developers. He
+              worked independently, devotedly and has proven excellent co-operation skills within multi-team projects.
+              We can warmly recommend him for similar, demanding tasks.
+              <Quote />
+            </p>
+          </ReferenceCard>
+          <ReferenceCard
+            referrerName="Johannes Takamäki"
+            referrerRole="Full Stack Developer"
+            companyName="Easybook"
+            logo="/companyLogos/EasybookFullLogo.png"
+            logoClassName="mt-1"
+          >
+            <p>
+              <Quote />
+              Petrus Eskelinen brings with him professional critical thinking, with which he is able to analyze and
+              organize every situation effectively. A creator with a great visual eye, who is able to create realistic
+              but truly impressive designs AND turn his plans into code. Petrus has been a really big addition to the
+              team. He is open to constructive discussion, criticism, and development suggestions. He does not shy away
+              from responsibility.
+              <Quote />
+            </p>
+          </ReferenceCard>
         </Section>
       </div>
     </>

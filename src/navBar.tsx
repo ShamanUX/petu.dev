@@ -8,8 +8,19 @@ interface NavLinkProps {
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ name, id, onClick }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -64; // NavBar height
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+    if (onClick) onClick();
+  };
+
   return (
-    <a href={`#${id}`} className="relative inline-block group py-2" onClick={onClick}>
+    <button className="relative inline-block group py-2" onClick={handleClick}>
       <span className="group-hover:text-highlight">{name} </span>
       <div
         className="absolute bottom-0 left-0 w-full h-0.5 bg-highlight
@@ -18,7 +29,7 @@ const NavLink: React.FC<NavLinkProps> = ({ name, id, onClick }) => {
               group-hover:origin-left
               origin-right"
       ></div>
-    </a>
+    </button>
   );
 };
 

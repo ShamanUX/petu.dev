@@ -143,6 +143,20 @@ body {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-delay {
+  animation: fadeIn 1s ease-in-out 2s forwards;
+  opacity: 0;
+}
+
 /* TEXT STYLES */
 
 p {

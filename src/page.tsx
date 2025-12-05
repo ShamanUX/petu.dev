@@ -26,7 +26,7 @@ function HeaderText() {
             alt="Nickname Petu in handwritten style"
             width={300}
             height={300}
-            className="invert absolute bottom-full left-24  w-48 md:w-64"
+            className="invert absolute bottom-full left-24 w-48 md:w-64 fade-in-delay"
           ></img>
         </span>{" "}
         Eskelinen
@@ -44,16 +44,24 @@ function HeaderText() {
         </strong>{" "}
         solutions with proficiency and care.
       </p>
-      <ProjectsLink />
+      <div className="flex w-full items-center justify-center md:items-start md:justify-start gap-2">
+        <a
+          href="mailto:petrus.eskelinen@gmail.com"
+          className="inline-block whitespace-nowrap px-6 py-3  hover:shadow-sm shadow-highlight hover:scale-110 transition-all duration-300 rounded-full font-medium bg-linear-to-r to-highlight from-blue-300 text-background animate-gradient"
+        >
+          Contact Me
+        </a>
+        <ProjectsLink />
+      </div>
     </div>
   );
 }
 
 function ProjectsLink() {
   return (
-    <div className="w-full justify-start flex flex-col gap-4 text-base font-medium sm:flex-row items-center">
+    <div className="justify-start flex flex-col gap-4 text-base font-medium sm:flex-row items-center">
       <a
-        className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] max-w-fit"
+        className="flex h-12 w-full items-center justify-center gap-2 rounded-full border-1 border-highlight px-5  transition-all duration-200 hover:bg-[#383838] dark:hover:bg-highlight/20 max-w-fit"
         href="#projects"
       >
         Check out my projects
@@ -66,7 +74,7 @@ function ProjectsLink() {
 function Header() {
   return (
     <div
-      className="min-w-[80%] p-4 max-w-full flex items-start md:items-center justify-center flex-col-reverse md:flex-row relative"
+      className="min-w-[80%] p-4 md:p-16 max-w-full flex items-start md:items-center justify-center flex-col-reverse md:flex-row relative"
       style={{ minHeight: "calc(100dvh - 64px)" }}
     >
       <div className="flex w-full flex-col justify-between gap-8 text-center md:text-left">
@@ -257,7 +265,7 @@ export default function Page() {
         <Header />
         <Section>
           <SectionHeading id="projects" name="Featured projects" />
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-8 md:gap-16">
             {projectCardComponents.map((pc, index) => (
               <div key={pc.key} className={`flex w-full ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
                 {pc}
@@ -329,7 +337,7 @@ export default function Page() {
 
       {/* Social Links */}
       <div className="hidden md:fixed bottom-4 left-4 md:flex flex-col justify-center items-center gap-4 z-20">
-        <a href="mailto:petrus.eskelinen@protonmail.com" className="relative group" title="Email">
+        <a href="mailto:petrus.eskelinen@protonmail.com" className="relative group font-mono" title="Email">
           <div
             className="flex gap-2  text-gray-600 dark:text-white group-hover:text-highlight transition-colors duration-300"
             style={{
@@ -339,7 +347,7 @@ export default function Page() {
               letterSpacing: "2px",
             }}
           >
-            <MailSolid className="rotate-90" />
+            <MailSolid className="rotate-180" />
             petrus.eskelinen@protonmail.com
           </div>
           <div className="absolute bottom-0 right-0 w-0.5 h-full bg-highlight transform scale-y-0 transition-transform duration-300 group-hover:scale-y-100 group-hover:origin-bottom origin-top"></div>
@@ -361,19 +369,24 @@ export default function Page() {
         </a>
 
         <a
-          href="https://linkedin.com/in/petruseskelinen"
+          href="https://linkedin.com/in/petrus-eskelinen"
           target="_blank"
           rel="noopener noreferrer"
           className="relative group"
           title="LinkedIn"
         >
           <img
-            className="invert dark:invert h-8 w-8 group-hover:scale-110 transition-transform duration-300"
+            className="invert-0 dark:invert scale-140 h-6 w-6 group-hover:scale-110 transition-transform duration-300"
             src="/linkedin.svg"
             alt="LinkedIn"
           />
           <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
         </a>
+      </div>
+
+      {/* Copyright */}
+      <div className="text-center py-4 text-gray-500 dark:text-gray-400 text-sm">
+        © {new Date().getFullYear()} Petrus Eskelinen
       </div>
     </>
   );

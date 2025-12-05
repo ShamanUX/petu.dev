@@ -144,7 +144,7 @@ export default function VerticalJobTabs() {
     <section className="md:flex md:items-center md:justify-center md:w-full">
       {/* Mobile Carousel */}
       <div className="md:hidden">
-        {loaded && instanceRef.current && (
+        {loaded && (
           <div className="flex justify-center gap-2 mb-4">
             {jobs.map((_, idx) => (
               <button
@@ -159,7 +159,7 @@ export default function VerticalJobTabs() {
           </div>
         )}
         <div ref={sliderRef} className="keen-slider">
-          {jobs.map((job, idx) => (
+          {jobs.map((job) => (
             <div key={job.company} className="keen-slider__slide p-4">
               <JobPanel job={job} />
             </div>

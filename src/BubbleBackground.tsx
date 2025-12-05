@@ -14,7 +14,7 @@ export default function BubbleBackground() {
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const initialized = useRef(false);
   const swayRefs = useRef<Map<number, HTMLDivElement>>(new Map());
-  const swayIntervals = useRef<Map<number, NodeJS.Timeout>>(new Map());
+  const swayIntervals = useRef<Map<number, number>>(new Map());
 
   useEffect(() => {
     const createBubble = (isInitial: boolean) => {

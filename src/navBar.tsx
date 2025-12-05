@@ -54,7 +54,7 @@ const SocialLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) =>
     </a>
 
     <a
-      href="https://linkedin.com/in/petruseskelinen"
+      href="https://linkedin.com/in/petrus-eskelinen"
       target="_blank"
       rel="noopener noreferrer"
       className="relative group flex items-center gap-2 py-2"
@@ -97,15 +97,29 @@ export default function NavBar({ height }: { height: number }) {
             <NavLink name="Experience" id="experience" />
             <NavLink name="References" id="references" />
 
-            <a className="relative" href="https://github.com/ShamanUX" target="_blank">
+            <a className="relative group" href="https://github.com/ShamanUX" target="_blank">
               <img
-                className="invert dark:invert-0 h-6 w-6"
+                className="invert group-hover:scale-120 transition-all duration-200 dark:invert-0 h-6 w-6"
                 src="/github.svg"
                 alt="Github logo"
                 width={100}
                 height={100}
               />
               <span className=" transition-all duration-300 absolute -inset-1 border-highlight hover:border-2 rounded-sm  p-2 hover:bg-highlight opacity-0 hover:opacity-40"></span>
+            </a>
+            <a
+              href="https://linkedin.com/in/petrus-eskelinen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group"
+              title="LinkedIn"
+            >
+              <img
+                className="invert-0 dark:invert scale-140 h-6 w-6 group-hover:scale-160 transition-transform duration-300"
+                src="/linkedin.svg"
+                alt="LinkedIn"
+              />
+              <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
             </a>
           </div>
         </div>
@@ -142,6 +156,9 @@ export default function NavBar({ height }: { height: number }) {
             <NavLink name="References" id="references" onClick={closeMenu} />
             <div className="border-t pt-6">
               <SocialLinks onLinkClick={closeMenu} />
+            </div>
+            <div className="border-t pt-6 text-center text-gray-500 dark:text-gray-400 text-sm">
+              © {new Date().getFullYear()} Petrus Eskelinen
             </div>
           </nav>
         </div>

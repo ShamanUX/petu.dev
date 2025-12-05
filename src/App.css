@@ -114,6 +114,13 @@ body {
   animation-delay: var(--delay);
 }
 
+.bubble-3d {
+  background: rgba(145, 145, 145, 0.673);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  filter: blur(0.5px);
+}
+
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradientShift 5s ease-in-out infinite;

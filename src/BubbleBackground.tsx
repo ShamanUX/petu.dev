@@ -90,7 +90,7 @@ export default function BubbleBackground() {
           }
         >
           <div
-            className="bubble-float rounded-full bg-blue-200/50 blur-[1px]"
+            className="bubble-float bubble-3d rounded-full"
             style={
               {
                 width: `${bubble.size}px`,

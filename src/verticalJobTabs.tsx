@@ -6,7 +6,7 @@ const jobs = [
     companyUrl: "https://easybook.fi",
     title: "Full Stack Developer, UX Designer",
     date: "NOV 2024 - PRESENT",
-    summary: "Saas startup for booking, reservation and e-commerce solutions.",
+    summary: "SaaS startup for booking, reservation and e-commerce solutions.",
     highlights: [
       "I designed and developed the admin panel UI, and implemented features ranging from chatbot logic to booking systems.",
       "Improved the development workflow and security, and implemented automated testing with Cypress.",

@@ -32,7 +32,7 @@ function HeaderText() {
       </h1>
       <h2 className="w-full text-4xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
         Robust <span className="font-mono font-bold">{`<code>`}</span>. <br className="md:hidden" /> Beautiful{" "}
-        <span className=" bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+        <span className=" bg-linear-to-r from-highlight to-blue-300 bg-clip-text text-transparent animate-gradient">
           design.
         </span>{" "}
       </h2>

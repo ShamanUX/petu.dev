@@ -45,12 +45,12 @@ function HeaderText() {
         solutions with proficiency and care.
       </p>
       <div className="flex w-full items-center justify-center md:items-start md:justify-start gap-2">
-        <a
-          href="mailto:petrus.eskelinen@gmail.com"
-          className="inline-block whitespace-nowrap px-6 py-3  hover:shadow-sm shadow-highlight hover:scale-110 transition-all duration-300 rounded-full font-medium bg-linear-to-r to-highlight from-blue-300 text-background animate-gradient"
-        >
-          Contact Me
-        </a>
+      <a
+        href="mailto:petrus.eskelinen@protonmail.com"
+        className="inline-block px-6 py-3 border border-highlight text-highlight hover:bg-highlight hover:text-white transition-all duration-300 rounded-md font-medium"
+      >
+        Contact Me
+      </a>
         <ProjectsLink />
       </div>
     </div>

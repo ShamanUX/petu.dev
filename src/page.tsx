@@ -199,7 +199,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ name, id }) => {
 
 const Section: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="relative flex flex-col w-full px-4 sm:px-16 max-w-[95%] md:max-w-[80%] gap-8 my-16">{children}</div>
+    <div className="relative flex flex-col w-full px-4 sm:px-16 max-w-[95%] md:max-w-6xl gap-4 md:gap-4 my-8 md:my-12">
+      {children}
+    </div>
   );
 };
 
@@ -266,56 +268,58 @@ export default function Page() {
         </Section>
         <Section>
           <SectionHeading id="references" name="References" />
-          <ReferenceCard
-            referrerName="Elias Anttalainen"
-            referrerRole="Marketing Director"
-            companyName="Easybook"
-            logo="/companyLogos/EasybookFullLogo.png"
-            logoClassName="mt-1"
-          >
-            <p>
-              <Quote />
-              Petrus has been truly reliable and cooperative, and he has handled his work excellently. He has been a
-              strong part of the team. In addition to being a talented UI designer who also understands the backend
-              side, he has an excellent ability to lead the team. Petrus was responsible for the entire software design
-              and at the same time succeeded in bringing new practices and clear rules to the company, which have
-              streamlined our software development process. A self-directed, determined, and reliable performer.
-              <Quote />
-            </p>
-          </ReferenceCard>
-          <ReferenceCard
-            referrerName="Henri Auer"
-            referrerRole="Lead Developer"
-            companyName="Hitachi High-Tech Analytical Science Finland"
-            logo="/companyLogos/logo-hitachi.svg"
-            logoClassName=" invert !h-5 mt-1"
-          >
-            <p>
-              <Quote />
-              Petrus has taken care of his tasks very skillfully in timely manner and had right competences for the job.
-              He designed and implemented graphical user interfaces and coordinated work with other developers. He
-              worked independently, devotedly and has proven excellent co-operation skills within multi-team projects.
-              We can warmly recommend him for similar, demanding tasks.
-              <Quote />
-            </p>
-          </ReferenceCard>
-          <ReferenceCard
-            referrerName="Johannes Takamäki"
-            referrerRole="Full Stack Developer"
-            companyName="Easybook"
-            logo="/companyLogos/EasybookFullLogo.png"
-            logoClassName="mt-1"
-          >
-            <p>
-              <Quote />
-              Petrus Eskelinen brings with him professional critical thinking, with which he is able to analyze and
-              organize every situation effectively. A creator with a great visual eye, who is able to create realistic
-              but truly impressive designs AND turn his plans into code. Petrus has been a really big addition to the
-              team. He is open to constructive discussion, criticism, and development suggestions. He does not shy away
-              from responsibility.
-              <Quote />
-            </p>
-          </ReferenceCard>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <ReferenceCard
+              referrerName="Elias Anttalainen"
+              referrerRole="Marketing Director"
+              companyName="Easybook"
+              logo="/companyLogos/EasybookFullLogo.png"
+              logoClassName="mt-1"
+            >
+              <p>
+                <Quote />
+                Petrus has been truly reliable and cooperative, and he has handled his work excellently. He has been a
+                strong part of the team. In addition to being a talented UI designer who also understands the backend
+                side, he has an excellent ability to lead the team. Petrus was responsible for the entire software
+                design and at the same time succeeded in bringing new practices and clear rules to the company, which
+                have streamlined our software development process. A self-directed, determined, and reliable performer.
+                <Quote />
+              </p>
+            </ReferenceCard>
+            <ReferenceCard
+              referrerName="Henri Auer"
+              referrerRole="Lead Developer"
+              companyName="Hitachi High-Tech Analytical Science Finland"
+              logo="/companyLogos/logo-hitachi.svg"
+              logoClassName=" invert !h-5 mt-1"
+            >
+              <p>
+                <Quote />
+                Petrus has taken care of his tasks very skillfully in timely manner and had right competences for the
+                job. He designed and implemented graphical user interfaces and coordinated work with other developers.
+                He worked independently, devotedly and has proven excellent co-operation skills within multi-team
+                projects. We can warmly recommend him for similar, demanding tasks.
+                <Quote />
+              </p>
+            </ReferenceCard>
+            <ReferenceCard
+              referrerName="Johannes Takamäki"
+              referrerRole="Full Stack Developer"
+              companyName="Easybook"
+              logo="/companyLogos/EasybookFullLogo.png"
+              logoClassName="mt-1"
+            >
+              <p>
+                <Quote />
+                Petrus Eskelinen brings with him professional critical thinking, with which he is able to analyze and
+                organize every situation effectively. A creator with a great visual eye, who is able to create realistic
+                but truly impressive designs AND turn his plans into code. Petrus has been a really big addition to the
+                team. He is open to constructive discussion, criticism, and development suggestions. He does not shy
+                away from responsibility.
+                <Quote />
+              </p>
+            </ReferenceCard>
+          </div>
         </Section>
       </div>
     </>

@@ -32,17 +32,14 @@ const ReferenceCard: React.FC<ReferenceCardProps> = ({
   children,
 }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl hover:shadow-highlight/5 rounded-lg p-6 m-4 transition-shadow duration-300 max-w-2xl">
-      <div className="flex items-baseline gap-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 leading-none">{referrerName}</h3>
-            {logo && <img src={logo} alt={companyName} className={`${logoClassName || ""} w-auto h-6`} />}
-          </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 italic mt-1">{referrerRole}</p>
+    <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl hover:shadow-highlight/5 rounded-lg p-6 transition-shadow duration-300">
+      <div className="gap-4 w-full flex ite">
+        <div className="flex w-full items-center-safe justify-between gap-2">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 leading-none">{referrerName}</h3>
+          {logo && <img src={logo} alt={companyName} className={`${logoClassName || ""} w-auto h-6`} />}
         </div>
-        <div className="flex items-center mb-4"></div>
       </div>
+      <p className="text-sm text-gray-600 dark:text-gray-400 italic mt-1">{referrerRole}</p>
       <div className="relative mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">{children}</div>
     </div>
   );

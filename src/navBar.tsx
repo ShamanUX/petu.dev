@@ -1,5 +1,6 @@
 import { MailSolid, Menu, Xmark } from "iconoir-react";
 import { useState } from "react";
+import { offsetScrollTo } from "./helpers";
 
 interface NavLinkProps {
   name: string;
@@ -9,13 +10,7 @@ interface NavLinkProps {
 
 const NavLink: React.FC<NavLinkProps> = ({ name, id, onClick }) => {
   const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -64; // NavBar height
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+    offsetScrollTo(id, e);
     if (onClick) onClick();
   };
 

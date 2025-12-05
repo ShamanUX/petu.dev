@@ -5,6 +5,7 @@ import "react-medium-image-zoom/dist/styles.css";
 import VerticalJobTabs from "./verticalJobTabs";
 import ReferenceCard, { Quote } from "./ReferenceCard";
 import { ArrowDown, MailSolid } from "iconoir-react";
+import { offsetScrollTo } from "./helpers";
 
 function ProfileImage() {
   return (
@@ -45,12 +46,12 @@ function HeaderText() {
         solutions with proficiency and care.
       </p>
       <div className="flex w-full items-center justify-center md:items-start md:justify-start gap-2">
-      <a
-        href="mailto:petrus.eskelinen@protonmail.com"
-        className="inline-block px-6 py-3 border border-highlight text-highlight hover:bg-highlight hover:text-white transition-all duration-300 rounded-md font-medium"
-      >
-        Contact Me
-      </a>
+        <a
+          href="mailto:petrus.eskelinen@protonmail.com"
+          className="inline-block px-6 py-3 hover:scale-115 rounded-full bg-linear-to-r to-highlight from-blue-300 text-background animate-gradient transition-all duration-300 hover:shadow-sm hover:shadow-highlight  font-medium"
+        >
+          Contact Me
+        </a>
         <ProjectsLink />
       </div>
     </div>
@@ -61,8 +62,8 @@ function ProjectsLink() {
   return (
     <div className="justify-start flex flex-col gap-4 text-base font-medium sm:flex-row items-center">
       <a
-        className="flex h-12 w-full items-center justify-center gap-2 rounded-full border-1 border-highlight px-5  transition-all duration-200 hover:bg-[#383838] dark:hover:bg-highlight/20 max-w-fit"
-        href="#projects"
+        className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full border-1 border-highlight px-5  transition-all duration-200 hover:bg-[#383838] dark:hover:bg-highlight/20 max-w-fit"
+        onClick={(e) => offsetScrollTo("projects", e)}
       >
         Check out my projects
         <ArrowDown width={16} height={16} />

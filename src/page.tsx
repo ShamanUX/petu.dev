@@ -37,8 +37,11 @@ function HeaderText() {
         </span>{" "}
       </h2>
       <p className="w-full text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-        As a seasoned <strong>full stack developer</strong>, <br /> I build web & cloud solutions with proficiency and
-        care.
+        As a seasoned <strong>full stack developer</strong>, <br /> I build{" "}
+        <strong className="bg-linear-to-r to-highlight from-blue-300 bg-clip-text text-transparent animate-gradient">
+          web & cloud
+        </strong>{" "}
+        solutions with proficiency and care.
       </p>
       <ProjectsLink />
     </div>

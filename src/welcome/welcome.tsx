@@ -1,7 +1,6 @@
 import NavBar from "../navBar";
 
 import BubbleBackground from "../BubbleBackground";
-import Footer from "../footer";
 import Page from "../page";
 
 export function Welcome() {
@@ -14,7 +13,6 @@ export function Welcome() {
       <div className="relative z-10 w-full">
         <NavBar height={navBarHeight} />
         <Page />
-        <Footer />
       </div>
       <BubbleBackground />
     </main>

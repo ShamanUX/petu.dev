@@ -4,6 +4,7 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import VerticalJobTabs from "./verticalJobTabs";
 import ReferenceCard, { Quote } from "./ReferenceCard";
+import { MailSolid } from "iconoir-react";
 
 function ProfileImage() {
   return (
@@ -324,6 +325,55 @@ export default function Page() {
             </ReferenceCard>
           </div>
         </Section>
+      </div>
+
+      {/* Social Links */}
+      <div className="fixed bottom-4 left-4 flex flex-col justify-center items-center gap-4 z-20">
+        <a href="mailto:petrus.eskelinen@protonmail.com" className="relative group" title="Email">
+          <div
+            className="flex gap-2  text-gray-600 dark:text-white group-hover:text-highlight transition-colors duration-300"
+            style={{
+              writingMode: "vertical-rl",
+              transform: "rotate(180deg)",
+              fontSize: "14px",
+              letterSpacing: "2px",
+            }}
+          >
+            <MailSolid className="rotate-90" />
+            petrus.eskelinen@protonmail.com
+          </div>
+          <div className="absolute bottom-0 right-0 w-0.5 h-full bg-highlight transform scale-y-0 transition-transform duration-300 group-hover:scale-y-100 group-hover:origin-bottom origin-top"></div>
+        </a>
+
+        <a
+          href="https://github.com/ShamanUX"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative group"
+          title="GitHub"
+        >
+          <img
+            className="invert dark:invert-0 h-6 w-6 group-hover:scale-110 transition-transform duration-300"
+            src="/github.svg"
+            alt="GitHub"
+          />
+          <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
+        </a>
+
+        <a
+          href="https://linkedin.com/in/petruseskelinen"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative group"
+          title="LinkedIn"
+        >
+          <img
+            className="invert dark:invert h-8 w-8 group-hover:scale-110 transition-transform duration-300"
+            src="/linkedin.svg"
+            alt="LinkedIn"
+          />
+          <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
+        </a>
       </div>
     </>
   );

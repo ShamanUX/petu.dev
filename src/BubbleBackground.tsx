@@ -36,9 +36,12 @@ export default function BubbleBackground() {
       setBubbles((prev) => [...prev, newBubble].slice(-30));
     };
 
+    const screenWidth = window.innerWidth;
+    const intervalTime = 5000 + 5000 * ((1920 - screenWidth) / 1920);
+    const clampedInterval = Math.max(5000, Math.min(10000, intervalTime));
     const interval = setInterval(() => {
       createBubble(false);
-    }, 5000);
+    }, clampedInterval);
     if (!initialized.current) {
       for (let i = 0; i < 2; i++) {
         createBubble(true);
@@ -49,7 +52,7 @@ export default function BubbleBackground() {
   }, []);
 
   useEffect(() => {
-    bubbles.forEach(bubble => {
+    bubbles.forEach((bubble) => {
       if (!swayIntervals.current.has(bubble.id)) {
         setTimeout(() => {
           const interval = setInterval(() => {
@@ -66,7 +69,7 @@ export default function BubbleBackground() {
   }, [bubbles]);
 
   useEffect(() => {
-    const currentIds = new Set(bubbles.map(b => b.id));
+    const currentIds = new Set(bubbles.map((b) => b.id));
     swayIntervals.current.forEach((interval, id) => {
       if (!currentIds.has(id)) {
         clearInterval(interval);
@@ -80,7 +83,9 @@ export default function BubbleBackground() {
       {bubbles.map((bubble) => (
         <div
           key={bubble.id}
-          ref={(el) => { if (el) swayRefs.current.set(bubble.id, el); }}
+          ref={(el) => {
+            if (el) swayRefs.current.set(bubble.id, el);
+          }}
           className="bubble-sway absolute"
           style={
             {

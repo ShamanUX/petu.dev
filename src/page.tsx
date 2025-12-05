@@ -4,7 +4,7 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import VerticalJobTabs from "./verticalJobTabs";
 import ReferenceCard, { Quote } from "./ReferenceCard";
-import { MailSolid } from "iconoir-react";
+import { ArrowDown, MailSolid } from "iconoir-react";
 
 function ProfileImage() {
   return (
@@ -37,7 +37,7 @@ function HeaderText() {
           design.
         </span>{" "}
       </h2>
-      <p className="w-full text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+      <p className="w-full text-lg  text-zinc-600 dark:text-zinc-400">
         As a seasoned <strong>full stack developer</strong>, <br /> I build{" "}
         <strong className="bg-linear-to-r to-highlight from-blue-300 bg-clip-text text-transparent animate-gradient">
           web & cloud
@@ -56,8 +56,8 @@ function ProjectsLink() {
         className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] max-w-fit"
         href="#projects"
       >
-        <img className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={16} height={16} />
         Check out my projects
+        <ArrowDown width={16} height={16} />
       </a>
     </div>
   );

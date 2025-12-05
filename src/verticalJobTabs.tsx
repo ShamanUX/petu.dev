@@ -42,7 +42,7 @@ const JobPanel: React.FC<JobPanelProps> = ({ job }) => (
         <h3 className="font-medium flex md:ml-2 leading-tight text-xl md:text-2xl">
           <div>
             {job.title.map((title) => (
-              <div>{title}</div>
+              <div key={title}>{title}</div>
             ))}
 
             <p className="font-mono text-xs text-blue-700">{job.date}</p>

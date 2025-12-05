@@ -11,15 +11,15 @@ interface ReferenceCardProps {
 
 export const Quote: React.FC = () => {
   return (
-    <div
+    <span
       className="inline relative
     "
     >
-      <div className="opacity-0 inline font-jost text-2xl !leading-[0] mt-2 max-h-0 ">"</div>
-      <div className="absolute opacity-65 text-white font-jost text-2xl !leading-[0] mt-2 max-h-0 right-0 top-0.5">
+      <span className="opacity-0 inline font-jost text-2xl !leading-[0] mt-2 max-h-0 ">"</span>
+      <span className="absolute opacity-65 text-white font-jost text-2xl !leading-[0] mt-2 max-h-0 right-0 top-0.5">
         "
-      </div>
-    </div>
+      </span>
+    </span>
   );
 };
 

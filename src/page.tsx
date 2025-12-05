@@ -128,7 +128,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   vidUrl,
 }) => {
   return (
-    <div className="flex flex-col rounded-sm p-8 gap-4 w-8/9 relative shadow-sm shadow-highlight backdrop-blur-xs">
+    <div className="flex flex-col rounded-sm p-8 gap-4 w-full md:w-8/9 relative shadow-sm shadow-highlight backdrop-blur-xs">
       <div className="flex justify-between min-h-[60px]">
         <div className="flex flex-col gap-2">
           <h3 className="text-2xl align-top leading-[1]"> {name} </h3>
@@ -198,7 +198,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ name, id }) => {
 };
 
 const Section: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <div className="relative flex flex-col w-full px-4 sm:px-16 max-w-[80%] gap-8 my-16">{children}</div>;
+  return (
+    <div className="relative flex flex-col w-full px-4 sm:px-16 max-w-[95%] md:max-w-[80%] gap-8 my-16">{children}</div>
+  );
 };
 
 export default function Page() {

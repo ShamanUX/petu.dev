@@ -58,7 +58,7 @@ export default function VerticalJobTabs() {
   }, [selected]);
 
   return (
-    <section className="max-w-6xl mb-24">
+    <section className="max-w-6xl mb-24 overflow-scroll">
       <div className="flex flex-row gap-8">
         {/* Tabs */}
         <div className="h-fit relative flex flex-col border-l-2 border-gray-300/30">
@@ -87,8 +87,6 @@ export default function VerticalJobTabs() {
                   style={{ objectFit: "contain" }}
                   className={`${job.invertIcon ? "invert" : ""} h-16 w-16`}
                 />
-
-                <p className={`${selected === idx ? "text-highlight!" : ""}`}>{job.company}</p>
               </span>
             </button>
           ))}

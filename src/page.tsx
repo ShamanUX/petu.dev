@@ -32,13 +32,13 @@ function HeaderText() {
         </span>{" "}
         Eskelinen
       </h1>
-      <h2 className="w-full text-4xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+      <h2 className="w-full text-4xl font-semibold leading-10 tracking-tight text-zinc-50">
         Robust <span className="font-mono font-bold">{`<code>`}</span>. <br className="md:hidden" /> Beautiful{" "}
         <span className=" bg-linear-to-r from-highlight to-blue-300 bg-clip-text text-transparent animate-gradient">
           design.
         </span>{" "}
       </h2>
-      <p className="w-full text-lg  text-zinc-600 dark:text-zinc-400">
+      <p className="w-full text-lg  text-zinc-400">
         As a seasoned <strong>full stack developer</strong>, <br /> I build{" "}
         <strong className="bg-linear-to-r to-highlight from-blue-300 bg-clip-text text-transparent animate-gradient">
           web & cloud
@@ -62,7 +62,7 @@ function ProjectsLink() {
   return (
     <div className="justify-start flex flex-col gap-4 text-base font-medium sm:flex-row items-center">
       <a
-        className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full border-1 border-highlight px-5  transition-all duration-200 hover:bg-[#383838] dark:hover:bg-highlight/20 max-w-fit"
+        className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full border-1 border-highlight px-5  transition-all duration-200 hover:bg-highlight/20 max-w-fit"
         onClick={(e) => offsetScrollTo("projects", e)}
       >
         Check out my projects
@@ -340,7 +340,7 @@ export default function Page() {
       <div className="hidden md:fixed bottom-4 left-4 md:flex flex-col justify-center items-center gap-4 z-20">
         <a href="mailto:petrus.eskelinen@protonmail.com" className="relative group font-mono" title="Email">
           <div
-            className="flex gap-2  text-gray-600 dark:text-white group-hover:text-highlight transition-colors duration-300"
+            className="flex gap-2  text-white group-hover:text-highlight transition-colors duration-300"
             style={{
               writingMode: "vertical-rl",
               transform: "rotate(180deg)",
@@ -362,7 +362,7 @@ export default function Page() {
           title="GitHub"
         >
           <img
-            className="invert dark:invert-0 h-6 w-6 group-hover:scale-110 transition-transform duration-300"
+            className="invert-0 h-6 w-6 group-hover:scale-110 transition-transform duration-300"
             src="/github.svg"
             alt="GitHub"
           />
@@ -377,7 +377,7 @@ export default function Page() {
           title="LinkedIn"
         >
           <img
-            className="invert-0 dark:invert scale-140 h-6 w-6 group-hover:scale-110 transition-transform duration-300"
+            className="invert scale-140 h-6 w-6 group-hover:scale-110 transition-transform duration-300"
             src="/linkedin.svg"
             alt="LinkedIn"
           />
@@ -386,9 +386,7 @@ export default function Page() {
       </div>
 
       {/* Copyright */}
-      <div className="text-center py-4 text-gray-500 dark:text-gray-400 text-sm">
-        © {new Date().getFullYear()} Petrus Eskelinen
-      </div>
+      <div className="text-center py-4 text-gray-400 text-sm">© {new Date().getFullYear()} Petrus Eskelinen</div>
     </>
   );
 }

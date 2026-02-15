@@ -37,7 +37,7 @@ const SocialLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) =>
       onClick={onLinkClick}
     >
       <MailSolid />
-      <div className="text-gray-600 leading-0 dark:text-gray-400 group-hover:text-highlight transition-colors duration-300 ">
+      <div className="text-gray-400 leading-0 group-hover:text-highlight transition-colors duration-300 ">
         Contact me!
       </div>
       <div className="absolute bottom-0 left-0 w-full h-0.5 bg-highlight transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-left origin-right"></div>
@@ -51,10 +51,8 @@ const SocialLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) =>
       title="GitHub"
       onClick={onLinkClick}
     >
-      <img className="invert dark:invert-0 h-6 w-6" src="/github.svg" alt="GitHub" />
-      <span className="text-gray-600 dark:text-gray-400 group-hover:text-highlight transition-colors duration-300">
-        GitHub
-      </span>
+      <img className="invert-0 h-6 w-6" src="/github.svg" alt="GitHub" />
+      <span className="text-gray-400 group-hover:text-highlight transition-colors duration-300">GitHub</span>
       <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
       <div className="absolute bottom-0 left-0 w-full h-0.5 bg-highlight transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-left origin-right"></div>
     </a>
@@ -68,17 +66,9 @@ const SocialLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) =>
       onClick={onLinkClick}
     >
       <div className="relative h-6 w-6 overflow-visible">
-        <img
-          className="absolute invert-0 dark:invert scale-125"
-          width={48}
-          height={48}
-          src="/linkedin.svg"
-          alt="LinkedIn"
-        />
+        <img className="absolute invert scale-125" width={48} height={48} src="/linkedin.svg" alt="LinkedIn" />
       </div>
-      <span className="text-gray-600 dark:text-gray-400 group-hover:text-highlight transition-colors duration-300">
-        LinkedIn
-      </span>
+      <span className="text-gray-400 group-hover:text-highlight transition-colors duration-300">LinkedIn</span>
       <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
       <div className="absolute bottom-0 right-0 w-0.5 h-full bg-highlight transform scale-y-0 transition-transform duration-300 group-hover:scale-y-100 group-hover:origin-top origin-bottom"></div>
     </a>
@@ -105,7 +95,7 @@ export default function NavBar({ height }: { height: number }) {
 
             <a className="relative group" href="https://github.com/ShamanUX" target="_blank">
               <img
-                className="invert group-hover:scale-120 transition-all duration-200 dark:invert-0 h-6 w-6"
+                className="invert-0 group-hover:scale-120 transition-all duration-200 h-6 w-6"
                 src="/github.svg"
                 alt="Github logo"
                 width={100}
@@ -121,7 +111,7 @@ export default function NavBar({ height }: { height: number }) {
               title="LinkedIn"
             >
               <img
-                className="invert-0 dark:invert scale-140 h-6 w-6 group-hover:scale-160 transition-transform duration-300"
+                className="invert scale-140 h-6 w-6 group-hover:scale-160 transition-transform duration-300"
                 src="/linkedin.svg"
                 alt="LinkedIn"
               />
@@ -146,7 +136,7 @@ export default function NavBar({ height }: { height: number }) {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-4/5 bg-white dark:bg-gray-900 shadow-lg transform transition-transform duration-300 z-20 ${
+        className={`fixed top-0 right-0 h-full w-4/5 bg-gray-900 shadow-lg transform transition-transform duration-300 z-20 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -163,7 +153,7 @@ export default function NavBar({ height }: { height: number }) {
             <div className="border-t pt-6">
               <SocialLinks onLinkClick={closeMenu} />
             </div>
-            <div className="border-t pt-6 text-center text-gray-500 dark:text-gray-400 text-sm">
+            <div className="border-t pt-6 text-center text-gray-400 text-sm">
               © {new Date().getFullYear()} Petrus Eskelinen
             </div>
           </nav>

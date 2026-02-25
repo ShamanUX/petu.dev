@@ -67,12 +67,12 @@ const jobs: Job[] = [
   {
     company: "Easybook",
     companyUrl: "https://easybook.fi",
-    title: ["Full Stack Developer", "UX Designer"],
+    title: ["Full Stack Developer"],
     date: "NOV 2024 - PRESENT",
-    summary: "SaaS startup for booking, reservation and e-commerce solutions.",
+    summary: "SaaS startup creating booking, reservation and e-commerce solutions.",
     highlights: [
-      "I designed and developed the admin panel UI, and implemented features ranging from chatbot logic to booking systems.",
-      "Improved the development workflow and security, and implemented automated testing with Cypress.",
+      "Mentored junior developers and took the company from concept to profitability.",
+      "Improved the development workflow and security, and implemented automated testing with Cypress to reduce production bugs by 75%.",
     ],
     icon: "/companyLogos/EasybookFullLogo.png",
   },
@@ -83,8 +83,8 @@ const jobs: Job[] = [
     date: "SEP 2023 - NOV 2024",
     summary: "Scientific instrumentation company specializing in analytical instruments.",
     highlights: [
-      "I was in charge of developing the responsive web interface for a handheld measurement device.",
-      "Collaborated in complex multi-team environment in an effort to maximise productivity.",
+      "I was in charge of developing the responsive web-based interface for a handheld measurement device.",
+      "Collaborating in complex multi-team environment, I was celebrated due to improved team spirit.",
       "Unified the design across the product to ensure a consistent user experience.",
     ],
     icon: "/companyLogos/logo-hitachi.svg",
@@ -127,7 +127,7 @@ export default function VerticalJobTabs() {
     },
     [
       // add plugins here
-    ]
+    ],
   );
 
   useEffect(() => {
@@ -141,7 +141,7 @@ export default function VerticalJobTabs() {
   }, [selected]);
 
   return (
-    <section className="md:flex md:items-center md:justify-center md:w-full">
+    <section className="md:flex md:items-center  md:w-full">
       {/* Mobile Carousel */}
       <div className="md:hidden">
         {loaded && (
@@ -168,7 +168,7 @@ export default function VerticalJobTabs() {
       </div>
 
       {/* Desktop Vertical Tabs */}
-      <div className="hidden md:flex w-4/5 flex-row gap-8">
+      <div className="hidden md:flex flex-row gap-8">
         {/* Tabs */}
         <div className="h-fit w-24 relative flex flex-col border-l-2 border-gray-300/30">
           {jobs.map((job, idx) => (

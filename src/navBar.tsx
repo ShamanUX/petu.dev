@@ -1,4 +1,4 @@
-import { MailSolid, Menu, Xmark } from "iconoir-react";
+import { Download, DownloadSquareSolid, MailSolid, Menu, Xmark } from "iconoir-react";
 import { useState } from "react";
 import { offsetScrollTo } from "./helpers";
 
@@ -29,10 +29,10 @@ const NavLink: React.FC<NavLinkProps> = ({ name, id, onClick }) => {
 };
 
 const SocialLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => (
-  <div className="flex w-full flex-col justify-start items-start">
+  <div className="flex w-full flex-col justify-end items-end">
     <a
       href="mailto:petrus.eskelinen@protonmail.com"
-      className="relative group flex items-center justify-center gap-2 py-2"
+      className="relative group flex flex-row-reverse items-center justify-center gap-2 py-2"
       title="Email"
       onClick={onLinkClick}
     >
@@ -47,7 +47,7 @@ const SocialLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) =>
       href="https://github.com/ShamanUX"
       target="_blank"
       rel="noopener noreferrer"
-      className="relative group flex items-center gap-2 py-2"
+      className="relative group flex flex-row-reverse items-center gap-2 py-2"
       title="GitHub"
       onClick={onLinkClick}
     >
@@ -61,7 +61,7 @@ const SocialLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) =>
       href="https://linkedin.com/in/petrus-eskelinen"
       target="_blank"
       rel="noopener noreferrer"
-      className="relative group flex items-center gap-2 py-2"
+      className="relative group flex flex-row-reverse items-center gap-2 py-2"
       title="LinkedIn"
       onClick={onLinkClick}
     >
@@ -71,6 +71,21 @@ const SocialLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) =>
       <span className="text-gray-400 group-hover:text-highlight transition-colors duration-300">LinkedIn</span>
       <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
       <div className="absolute bottom-0 right-0 w-0.5 h-full bg-highlight transform scale-y-0 transition-transform duration-300 group-hover:scale-y-100 group-hover:origin-top origin-bottom"></div>
+    </a>
+
+    <a
+      href="/PetrusEskelinen_CV.pdf"
+      download
+      className="relative group flex flex-row-reverse items-center gap-2 py-2"
+      title="Download CV"
+      onClick={onLinkClick}
+    >
+      <span className="flex items-center justify-center h-7 w-7 rounded-sm  group-hover:text-highlight transition-colors duration-300">
+        <DownloadSquareSolid className="h-7 w-7" aria-hidden />
+      </span>
+      <span className="text-gray-400 group-hover:text-highlight transition-colors duration-300">CV</span>
+      <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
+      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-highlight transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-left origin-right"></div>
     </a>
   </div>
 );
@@ -82,15 +97,29 @@ export default function NavBar({ height }: { height: number }) {
 
   const closeMenu = () => setIsOpen(false);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       {/* Desktop NavBar */}
       <div className="hidden md:block w-full sticky top-0 z-10 fixed-text-size">
         <div className="absolute inset-0 bg-[#12334540] backdrop-blur-sm " />
-        <div className="flex justify-end w-full px-16">
+        <div className="relative z-10 flex items-center justify-between w-full px-16">
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="font-mono text-lg tracking-wide text-zinc-200 hover:text-highlight transition-colors duration-300"
+            aria-label="Scroll to top"
+          >
+            petu.dev
+          </button>
           <div className={`flex gap-4 justify-center items-center`} style={{ height: height }}>
-            <NavLink name="Projects" id="projects" />
+            <NavLink name="About" id="about" />
+            <NavLink name="Tech Stack" id="tech-stack" />
             <NavLink name="Experience" id="experience" />
+            <NavLink name="Projects" id="projects" />
             <NavLink name="References" id="references" />
 
             <a className="relative group" href="https://github.com/ShamanUX" target="_blank">
@@ -117,13 +146,26 @@ export default function NavBar({ height }: { height: number }) {
               />
               <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
             </a>
+            <a
+              href="/PetrusEskelinen_CV.pdf"
+              download
+              className="relative group flex items-center gap-2 rounded-sm border border-current px-2 py-1"
+              title="Download CV"
+            >
+              <Download
+                className="h-5 w-5 text-zinc-200 group-hover:text-highlight group-hover:scale-110 transition-all duration-300"
+                aria-hidden
+              />
+              <span className="text-zinc-200 group-hover:text-highlight transition-colors duration-300">CV</span>
+              <span className="transition-all duration-300 absolute -inset-1 border-highlight group-hover:border-2 rounded-sm p-2 group-hover:bg-highlight opacity-0 group-hover:opacity-40"></span>
+            </a>
           </div>
         </div>
       </div>
 
       {/* Mobile Burger */}
       <div className="md:hidden w-full sticky top-0 z-10 fixed-text-size">
-        <div className="flex justify-end w-full px-4">
+        <div className="flex items-center justify-end w-full px-4">
           <div className={`flex gap-4 justify-center items-center`} style={{ height: height }}>
             <button onClick={toggleMenu} className="relative group p-2" aria-label="Toggle menu">
               <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -147,8 +189,10 @@ export default function NavBar({ height }: { height: number }) {
             </div>
           </button>
           <nav className="mt-12 flex flex-col gap-6  ">
-            <NavLink name="Projects" id="projects" onClick={closeMenu} />
+            <NavLink name="About" id="about" onClick={closeMenu} />
+            <NavLink name="Tech Stack" id="tech-stack" onClick={closeMenu} />
             <NavLink name="Experience" id="experience" onClick={closeMenu} />
+            <NavLink name="Projects" id="projects" onClick={closeMenu} />
             <NavLink name="References" id="references" onClick={closeMenu} />
             <div className="border-t pt-6">
               <SocialLinks onLinkClick={closeMenu} />

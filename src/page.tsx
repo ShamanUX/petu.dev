@@ -10,7 +10,7 @@ import { offsetScrollTo } from "./helpers";
 function ProfileImage() {
   return (
     <div className="rounded-full hidden md:block overflow-hidden max-h-54 max-w-54 lg:max-h-72 lg:max-w-72 min-h-54 min-w-54 lg:min-h-72 lg:min-w-72 shadow-xl shadow-highlight/20">
-      <img src="/PetrusEskelinen.jpg" alt="Picture of Petrus Eskelinen" width={500} height={500} />
+      <img src="/PetrusEskelinen.webp" alt="Picture of Petrus Eskelinen" width={500} height={500} />
     </div>
   );
 }
@@ -48,7 +48,7 @@ function HeaderText() {
       <div className="flex w-full items-center justify-center md:items-start md:justify-start gap-2">
         <a
           href="mailto:petrus.eskelinen@protonmail.com"
-          className="inline-block px-6 py-3 hover:scale-115 rounded-full bg-linear-to-r to-highlight from-blue-300 text-background animate-gradient transition-all duration-300 hover:shadow-sm hover:shadow-highlight  font-medium"
+          className="inline-block px-6 py-3 hover:scale-110 rounded-full bg-linear-to-r to-highlight from-blue-500 text-background animate-gradient transition-all duration-300 hover:shadow-sm hover:shadow-highlight  font-medium"
         >
           Contact Me
         </a>
@@ -63,9 +63,9 @@ function ProjectsLink() {
     <div className="justify-start flex flex-col gap-4 text-base font-medium sm:flex-row items-center">
       <a
         className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full border-1 border-highlight px-5  transition-all duration-200 hover:bg-highlight/20 max-w-fit"
-        onClick={(e) => offsetScrollTo("projects", e)}
+        onClick={(e) => offsetScrollTo("about", e)}
       >
-        Check out my projects
+        Get to know me
         <ArrowDown width={16} height={16} />
       </a>
     </div>
@@ -87,6 +87,29 @@ function Header() {
     </div>
   );
 }
+
+const techStack = [
+  {
+    title: "Frontend",
+    items: ["React", "Tailwind", "Vue", "TypeScript", "Vitest", "Cypress"],
+  },
+  {
+    title: "Backend",
+    items: ["Node.js", "Python", "C#"],
+  },
+  {
+    title: "Database",
+    items: ["Firestore", "Postgres"],
+  },
+  {
+    title: "Cloud",
+    items: ["GCP", "Docker", "Vercel"],
+  },
+  {
+    title: "Tools",
+    items: ["Figma", "CI/CD", "OpenCode", "Git"],
+  },
+];
 
 const PartialBorder: React.FC<{ side: string; flip?: boolean }> = ({ side, flip }) => {
   const height = side === "left" || side === "right" ? "h-[80px]" : "h-[2px]";
@@ -224,46 +247,68 @@ export default function Page() {
       key={"eb"}
       name={"Easybook"}
       role={"Full Stack Developer, UX Designer"}
-      tech={["React", "Node.js", "Tailwind", "Vercel", "Firestore", "Cypress", "Figma"]}
-      imgUrl={"/projectImages/EasybookShowcase.png"}
+      tech={["React", "Node.js", "Tailwind", "GCP", "Vercel", "Firestore", "Cypress", "Figma"]}
+      imgUrl={"/projectImages/EasybookShowcase.webp"}
       imgAlt={"Easybook UX designs"}
     />,
     <ProjectCard
       key={"qaia"}
       name={"Qaia fleet management solution"}
       role={"UX/UI Designer"}
-      imgUrl={"/projectImages/Dashboardcollage.png"}
+      imgUrl={"/projectImages/Dashboardcollage.webp"}
       imgAlt={"Qaia dashboard UX designs"}
       tech={["figma"]}
-    />,
-    <ProjectCard
-      key={"rt"}
-      name={"Rajaton Taide"}
-      role={"Web design, marketing, event production"}
-      imgUrl={"/projectImages/Rajatontaidecollage.png"}
-      imgAlt={"Rajaton taide web pages"}
-      tech={["js", "html", "css"]}
-    />,
-    <ProjectCard
-      key={"sr"}
-      name={"SpaceRider"}
-      role={"Game Developer"}
-      vidUrl={"/projectImages/SpaceRider.mkv"}
-      tech={["unity", "c#"]}
-    />,
-    <ProjectCard
-      key={"thesis"}
-      name={"Master's thesis - Learnability evaluation of VR apps"}
-      role={"Researcher"}
-      imgUrl={"/projectImages/ThesisFrontpage.png"}
-      imgAlt={"Thesis paper front page: Learnability evaluation of VR applications, Petrus Eskelinen"}
-      disableZoom
     />,
   ];
   return (
     <>
       <div className="flex flex-col w-full justify-center items-center">
         <Header />
+        <Section>
+          <SectionHeading id="about" name="About" />
+          <div className="rounded-sm border border-highlight/20 bg-white/5 px-6 py-5 shadow-sm shadow-highlight/10">
+            <p className="text-base md:text-lg leading-relaxed">
+              Business-minded, innovative Full Stack Engineer with 3+ years of experience. I take full ownership of the
+              technical roadmap and architecture while actively shaping product direction. I specialize in building
+              intuitive interfaces backed by scalable and secure logic, but the real ace up my sleeve is understanding
+              what my customers value.
+            </p>
+            <div className="mt-5 border-t border-highlight/15 pt-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-200">Education</h3>
+              <div className="mt-3">
+                <p className="text-base md:text-lg text-zinc-100">Master of Technology, Tampere University (2023)</p>
+              </div>
+            </div>
+          </div>
+        </Section>
+        <Section>
+          <SectionHeading id="tech-stack" name="Tech Stack" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {techStack.map((group) => (
+              <div
+                key={group.title}
+                className="flex flex-col gap-3 rounded-sm border border-highlight/20 bg-white/5 px-5 py-4 shadow-sm shadow-highlight/10"
+              >
+                <h3 className="text-lg font-semibold text-zinc-100">{group.title}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-highlight/30 px-3 py-1 text-sm font-mono text-zinc-200 bg-highlight/10"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
+        <Section>
+          <SectionHeading id="experience" name="Experience" />
+
+          <VerticalJobTabs />
+        </Section>
         <Section>
           <SectionHeading id="projects" name="Featured projects" />
           <div className="flex flex-col gap-8 md:gap-16">
@@ -273,11 +318,6 @@ export default function Page() {
               </div>
             ))}
           </div>
-        </Section>
-        <Section>
-          <SectionHeading id="experience" name="Experience" />
-
-          <VerticalJobTabs />
         </Section>
         <Section>
           <SectionHeading id="references" name="References" />

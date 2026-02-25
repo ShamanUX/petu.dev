@@ -144,5 +144,5 @@ body {
 /* TEXT STYLES */
 
 p {
-  @apply text-zinc-400;
+  @apply text-zinc-300;
 }

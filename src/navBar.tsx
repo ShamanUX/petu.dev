@@ -15,7 +15,7 @@ const NavLink: React.FC<NavLinkProps> = ({ name, id, onClick }) => {
   };
 
   return (
-    <button className="relative inline-block group py-2" onClick={handleClick}>
+    <button className="relative inline-block group py-1.5" onClick={handleClick}>
       <span className="group-hover:text-highlight">{name} </span>
       <div
         className="absolute bottom-0 left-0 w-full h-0.5 bg-highlight
@@ -189,11 +189,13 @@ export default function NavBar({ height }: { height: number }) {
             </div>
           </button>
           <nav className="mt-12 flex flex-col gap-6  ">
-            <NavLink name="About" id="about" onClick={closeMenu} />
-            <NavLink name="Tech Stack" id="tech-stack" onClick={closeMenu} />
-            <NavLink name="Experience" id="experience" onClick={closeMenu} />
-            <NavLink name="Projects" id="projects" onClick={closeMenu} />
-            <NavLink name="References" id="references" onClick={closeMenu} />
+            <div className="flex flex-col gap-2">
+              <NavLink name="About" id="about" onClick={closeMenu} />
+              <NavLink name="Tech Stack" id="tech-stack" onClick={closeMenu} />
+              <NavLink name="Experience" id="experience" onClick={closeMenu} />
+              <NavLink name="Projects" id="projects" onClick={closeMenu} />
+              <NavLink name="References" id="references" onClick={closeMenu} />
+            </div>
             <div className="border-t pt-6">
               <SocialLinks onLinkClick={closeMenu} />
             </div>
